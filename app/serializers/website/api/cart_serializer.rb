@@ -5,8 +5,8 @@ module Website
 
       def items
         BulkSerializer.new(
-          object.items,
-          each_serializer: CartItemSerializer
+          object: object.items,
+          serializer: CartItemSerializer
         ).as_json
       end
     end

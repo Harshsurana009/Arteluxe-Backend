@@ -6,11 +6,10 @@ module Website
     # Provides basic authetication methods.
     # Provides forgot password and reset password methods
     class AuthController < ApplicationController
-
       def sign_in
         AuthenticateCustomer.call(customer_params[:email],
                                   customer_params[:password]) do
-          on(:ok) { |token| render json: {access_token: token} }
+          on(:ok) { |token| render json: token }
           on(:invalid_credentials) do
             raise 'Invalid credentials'
           end

@@ -2,7 +2,7 @@ module Website
   module Api
     class CartItemSerializer < ActiveModel::Serializer
       attributes :id, :product_id, :quantity, :product_name, :product_price,
-                 :product_image_url, :amount
+                 :product_image_url, :product_id, :amount
 
       def product_name
         object.product.name

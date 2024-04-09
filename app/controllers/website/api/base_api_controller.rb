@@ -5,6 +5,8 @@ module Website
     # == Base API Controller for website
     # rest all controller will be inherited from this controller.
     class BaseApiController < ActionController::API
+      include Rectify::ControllerHelpers
+
       def authorize_customer
         AuthorizeCustomer.call(request.headers) do
           on(:customer) { |customer| expose(current_customer: customer) }
@@ -19,7 +21,7 @@ module Website
       end
 
       def find_cart
-        @cart = @current_customer.cart
+        @cart ||= @current_customer.cart
       end
 
       # it return the logged-in customer object
