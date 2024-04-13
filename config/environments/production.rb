@@ -94,5 +94,5 @@ Rails.application.configure do
   # ]
   # Skip DNS rebinding protection for the default health check endpoint.
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
-  Rails.application.routes.default_url_options[:host] = 'https://30ec-117-211-249-155.ngrok-free.app'
+  Rails.application.routes.default_url_options[:host] = 'https://arteluxe.onrender.com'
 end
