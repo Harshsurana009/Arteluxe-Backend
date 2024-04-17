@@ -49,10 +49,10 @@ module Website
       end
 
       def schedule_payment_capture
-        payment_verification_delay = [5, 20]
-        payment_verification_delay.each do |delay|
-          VerifyOnlinePaymentJob.set(wait_until: delay.minutes.from_now).perform_later(payment)
-        end
+        # payment_verification_delay = [5, 20]
+        # payment_verification_delay.each do |delay|
+        #   VerifyOnlinePaymentJob.set(wait_until: delay.minutes.from_now).perform_later(payment)
+        # end
       end
 
       def create_razopay_order
