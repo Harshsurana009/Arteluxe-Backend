@@ -1,0 +1,2 @@
+class CustomerPayment < Payment
+end

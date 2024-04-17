@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_08_061947) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_17_043232) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -40,6 +40,19 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_08_061947) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "addresses", force: :cascade do |t|
+    t.string "resource_type"
+    t.bigint "resource_id"
+    t.string "city", null: false
+    t.string "state", null: false
+    t.string "country", null: false
+    t.text "address", null: false
+    t.string "zip_code", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["resource_type", "resource_id"], name: "index_addresses_on_resource"
   end
 
   create_table "bookings", force: :cascade do |t|
@@ -110,7 +123,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_08_061947) do
     t.string "code", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "address_id"
     t.index "lower((code)::text)", name: "index_orders_on_lower_code", unique: true
+    t.index ["address_id"], name: "index_orders_on_address_id"
     t.index ["customer_id"], name: "index_orders_on_customer_id"
     t.index ["state"], name: "index_orders_on_state"
   end
@@ -173,5 +188,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_08_061947) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "orders", "addresses"
   add_foreign_key "resource_attachments", "file_attachments"
 end

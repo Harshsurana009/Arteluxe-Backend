@@ -62,6 +62,8 @@ Rails.application.configure do
   # Suppress logger output for asset requests.
   config.assets.quiet = true
 
+  config.active_job.queue_adapter = :sidekiq
+
   # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true
 
@@ -73,7 +75,7 @@ Rails.application.configure do
 
   # Raise error when a before_action's only/except options reference missing actions
   config.action_controller.raise_on_missing_callback_actions = true
-  Rails.application.routes.default_url_options[:host] = 'https://30ec-117-211-249-155.ngrok-free.app'
-  config.hosts = ['.arteluxe.vercel.app', '.arteluxe-admin.vercel.app', '.localhost:5173']
+  Rails.application.routes.default_url_options[:host] = 'https://arteluxe.onrender.com'
+  config.hosts = ['.arteluxe.vercel.app', '.arteluxe-admin.vercel.app', '.localhost:5173', 'localhost:4000']
   config.hosts << "30ec-117-211-249-155.ngrok-free.app"
 end

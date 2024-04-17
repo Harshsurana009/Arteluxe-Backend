@@ -9,7 +9,12 @@ class Order < ApplicationRecord
   # Associations
   belongs_to :customer
   has_many :bookings
+  has_many :payments
+  has_many :products, through: :bookings
+  belongs_to :address, optional: true
+  has_many :customer_payments, class_name: 'CustomerPayment'
 
+  # Validations
   validates :amount, presence: true
 
   # State Machine
@@ -30,4 +35,7 @@ class Order < ApplicationRecord
       transition from: %i[payment_due confirmed], to: :cancelled
     end
   end
+
+  # Aliases
+  alias_attribute :order_ref, :code
 end

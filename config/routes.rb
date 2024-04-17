@@ -1,3 +1,5 @@
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -22,6 +24,13 @@ Rails.application.routes.draw do
       get 'cart', to: 'carts#show'
       post 'add_to_cart', to: 'carts#add_to_cart'
       post 'remove_from_cart', to: 'carts#remove_from_cart'
+      resources :orders, only: %i[index show create], param: :order_ref do
+        member do
+          post :add_address
+          post :create_payment
+        end
+      end
     end
   end
+  mount Sidekiq::Web => '/sidekiq'
 end

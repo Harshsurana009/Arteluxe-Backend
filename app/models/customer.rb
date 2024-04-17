@@ -10,6 +10,7 @@ class Customer < ApplicationRecord
   # Associations
   has_many :orders
   has_one :cart
+  has_many :addresses, as: :resource
 
   # Validations
   validates :email, presence: true, uniqueness: true
