@@ -52,6 +52,10 @@ gem 'acts_as_list'
 gem 'active_storage_validations'
 gem 'rack-cors'
 gem 'razorpay'
+gem 'cloudinary'
+# gem 'azure-storage'
+# gem 'azure-storage-blob', '~> 2.0.1'
+
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ mswin mswin64 mingw x64_mingw jruby ]

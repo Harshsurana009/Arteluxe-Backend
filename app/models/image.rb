@@ -44,20 +44,43 @@ class Image < FileAttachment
 
   def original_url(_expires = false)
     serv = Rails.application.config.active_storage.service
-    if %i[local test production].include? serv
-      url_for(image)
+    # cdn_path = "filestore/#{image.key}"
+    if %i[local test production microsoft cloudinary].include? serv
+      Cloudinary::Utils.cloudinary_url(
+            image.key,
+            transformation: [
+              {
+                crop: 'fill',
+                gravity: 'auto',
+                quality: 'auto',
+                fetch_format: 'auto',
+                flags: ['progressive', 'strip_profile']
+              }
+            ]
+          )
     else
-      image.service_url
+      url_for(image)
     end
   end
 
   IMG_VARIANTS.each do |img_style_name, _image_dimensions|
     define_method("#{img_style_name}_url") do
       serv = Rails.application.config.active_storage.service
-      if %i[local test].include? serv
-        url_for(image)
+      if %i[local production test microsoft cloudinary].include? serv
+        Cloudinary::Utils.cloudinary_url(
+            image.key,
+            transformation: [
+              {
+                crop: 'fill',
+                gravity: 'auto',
+                quality: 'auto',
+                fetch_format: 'auto',
+                flags: ['progressive', 'strip_profile']
+              }
+            ]
+          )
       else
-        image.service_url
+        url_for(image)
       end
     end
   end
