@@ -1,25 +1,31 @@
-# README
+# Arteluxe: Devised Artistry
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Arteluxe is a fully responsive ecommerce handicraft website, maximum compatiblities in all mobile devices, built using Ruby on Rails, PostgreSQL, React.js, HTML/CSS.
 
-Things you may want to cover:
+It designed with user authentication functionality, admin panel for efficient product management and have Cloudinary & Razorpay integration.
 
-* Ruby version
+## Demo
 
-* System dependencies
+#### Home Page
+![Arteluxe Desktop Demo](https://res.cloudinary.com/dyl6ynnnz/image/upload/c_fill,f_auto,fl_progressive.strip_profile,g_auto,q_auto/sv3trnno0p52r5ya90rujkqxkq39)
 
-* Configuration
+#### Product Page
+![Arteluxe Desktop Demo](https://res.cloudinary.com/dyl6ynnnz/image/upload/c_fill,f_auto,fl_progressive.strip_profile,g_auto,q_auto/ay7q1ulcqi4od8ipo8ef3c5x8hlg)
 
-* Database creation
+#### Login & Address Page
+![Arteluxe Desktop Demo](https://res.cloudinary.com/dyl6ynnnz/image/upload/c_fill,f_auto,fl_progressive.strip_profile,g_auto,q_auto/669ghlfofr9l3iti2ll3n0ld83dp)
 
-* Database initialization
+#### Cart & Payment Page
+![Arteluxe Desktop Demo](https://res.cloudinary.com/dyl6ynnnz/image/upload/c_fill,f_auto,fl_progressive.strip_profile,g_auto,q_auto/lkqpxfu6isv40oleenrptx4cz1iz)
 
-* How to run the test suite
+#### Arteluxe Admin
+![Arteluxe Desktop Demo](https://res.cloudinary.com/dyl6ynnnz/image/upload/c_fill,f_auto,fl_progressive.strip_profile,g_auto,q_auto/cm11swjvdgpqetcyk9xxcisvb0nv)
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+## Contact
 
-* ...
-# Arteluxe-Backend
+If you want to contact me you can reach me at [Linkedin](https://www.linkedin.com/in/harshsurana009).
+
+## License
+
+This project contains license, Copyright @ 2024 - All Rights Reserved.
